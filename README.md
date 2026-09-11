@@ -118,6 +118,28 @@ assert "{{" not in out and out.count("{") == out.count("}")
 
 ---
 
+## Development
+
+`templates/youtube.user.css` in this repo is the real file. On the author's
+machine the pywal template path is a symlink to it:
+
+```bash
+ln -sfn ~/yt-system24/templates/youtube.user.css ~/.config/wal/templates/youtube.user.css
+```
+
+so there is exactly one file and the repo cannot drift from what's installed.
+
+To rebuild the published snapshot after editing the template:
+
+```bash
+python3 tools/build.py          # validate + write dist/
+python3 tools/build.py --check  # validate only
+```
+
+The script checks brace balance, renders through `.format()`, parses the result
+with tinycss2 if available, and adds `@updateURL` to `dist/` — **only** there.
+See the docstring for why that line must never reach the local install.
+
 ## Contributing / debugging
 
 The one rule that matters: **measure, don't guess.** Nearly every fix in this
