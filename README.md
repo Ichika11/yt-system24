@@ -39,6 +39,12 @@ Then paste into a new Stylus UserCSS style (Ctrl+A, Ctrl+V, Ctrl+S). Stylus
 keys style identity on `@name` + `@namespace`, so re-pasting updates the same
 style rather than creating a second one.
 
+**Do not install the pywal build from a URL.** `dist/…snapshot.user.css`
+carries an `@updateURL`, so Stylus will auto-update it — which on a pywal setup
+means periodically overwriting your wallpaper-derived palette with the
+snapshot's. The template renders *without* that line for exactly this reason;
+paste from `~/.cache/wal/` and let pywal be the thing that updates it.
+
 ### Without pywal
 
 Install `dist/youtube-pywal.snapshot.user.css` in Stylus and edit the palette

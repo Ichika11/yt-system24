@@ -1,10 +1,12 @@
 /* ==UserStyle==
 @name           YouTube pywal
 @namespace      ichika
-@version        2.6.61
+@version        2.6.62
 @description    TUI/terminal-styled YouTube in the system24 grammar, re-themed from the desktop wallpaper by pywal. Covers youtube.com, YouTube Music and Shorts. Inspired by refact0r's system24 for Discord.
 @author         ichika
 @license        MIT
+@homepageURL    https://github.com/Ichika11/yt-system24
+@supportURL     https://github.com/Ichika11/yt-system24/issues
 ==/UserStyle== */
 
 /* studio.youtube.com is deliberately NOT matched — the box grammar wrecks it. */
