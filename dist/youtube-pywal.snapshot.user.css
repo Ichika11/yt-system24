@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube pywal
 @namespace      ichika
-@version        2.6.60
+@version        2.6.61
 @description    TUI/terminal-styled YouTube in the system24 grammar, re-themed from the desktop wallpaper by pywal. Covers youtube.com, YouTube Music and Shorts. Inspired by refact0r's system24 for Discord.
 @author         ichika
 @license        MIT
@@ -2795,8 +2795,11 @@ ytd-search ytd-video-renderer
   max-width: none !important;
 }
 /* the expander's own inner gutters assume the indent it no longer has */
+/* VERIFIED against the live component: its children are #header, #content and
+   #collapsed-title. #expanded and #body were guessed ids and matched nothing —
+   removed in 2.6.61. */
 ytd-search ytd-expandable-metadata-renderer :is(#header, #collapsed-title,
-  #expanded, #body) {
+  #content) {
   padding-left: 0 !important;
   margin-left: 0 !important;
 }
@@ -2905,7 +2908,7 @@ ytd-search ytd-expandable-metadata-renderer {
   --yt-lightsource-icon-inactive-color: var(--yt-muted) !important;
   --yt-lightsource-icon-disabled-color: var(--yt-muted) !important;
 }
-ytd-search ytd-expandable-metadata-renderer :is(#header, #expanded, #body,
+ytd-search ytd-expandable-metadata-renderer :is(#header, #content,
   #collapsed-title, [class*="lightsource"]) {
   background: transparent !important;
 }
