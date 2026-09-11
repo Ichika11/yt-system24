@@ -59,6 +59,18 @@ works without them, but hover previews behave better with
 
 ---
 
+## Light mode
+
+There is no light/dark switch, and nothing consults the OS theme — the
+stylesheet contains no `prefers-color-scheme` rule at all. **Light mode comes
+from the wallpaper.** Point pywal at a light image and the whole theme goes
+light; a dark system theme doesn't override it either way.
+
+One deliberate exception: `videotint.user.js` sets `DARK_ONLY = true`, so the
+player chrome stays dark even on a light palette. Chrome sitting directly on
+video wants to be dark regardless of the page around it — YouTube's own player
+behaves the same way. Flip that constant if you disagree.
+
 ## Tuning
 
 Everything adjustable lives in one `--s24-*` block at the top of `:root`. Edit
