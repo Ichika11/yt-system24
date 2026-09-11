@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube pywal
 @namespace      ichika
-@version        2.6.59
+@version        2.6.60
 @description    TUI/terminal-styled YouTube in the system24 grammar, re-themed from the desktop wallpaper by pywal. Covers youtube.com, YouTube Music and Shorts. Inspired by refact0r's system24 for Discord.
 @author         ichika
 @license        MIT
@@ -689,16 +689,16 @@ yt-chip-cloud-chip-renderer,
   color: var(--yt-text) !important;
   transition: border-color var(--s24-motion), color var(--s24-motion) !important;
 }}
-yt-button-shape button:hover,
-tp-yt-paper-button:hover,
-.yt-spec-button-shape-next:hover,
-yt-button-view-model button:hover,
-button-view-model button:hover,
-like-button-view-model button:hover,
-dislike-button-view-model button:hover,
-yt-chip-cloud-chip-renderer:hover,
-.ytChipShapeChip:hover,
-:is(a, button)[class*="ytSpecButtonShapeNextHost"]:hover {{
+yt-button-shape button:is(:hover, :focus-visible),
+tp-yt-paper-button:is(:hover, :focus-visible),
+.yt-spec-button-shape-next:is(:hover, :focus-visible),
+yt-button-view-model button:is(:hover, :focus-visible),
+button-view-model button:is(:hover, :focus-visible),
+like-button-view-model button:is(:hover, :focus-visible),
+dislike-button-view-model button:is(:hover, :focus-visible),
+yt-chip-cloud-chip-renderer:is(:hover, :focus-visible),
+.ytChipShapeChip:is(:hover, :focus-visible),
+:is(a, button)[class*="ytSpecButtonShapeNextHost"]:is(:hover, :focus-visible) {{
   background: transparent !important;
   border-color: var(--yt-hot) !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
@@ -735,30 +735,30 @@ yt-chip-cloud-chip-renderer.iron-selected yt-formatted-string {{
 }}
 
 /* icon buttons: the glyph takes the accent, no container box ever */
-yt-icon-button:hover,
-ytd-masthead yt-icon-button:hover,
-ytd-masthead button:hover,
-ytd-menu-renderer yt-icon-button:hover {{
+yt-icon-button:is(:hover, :focus-visible),
+ytd-masthead yt-icon-button:is(:hover, :focus-visible),
+ytd-masthead button:is(:hover, :focus-visible),
+ytd-menu-renderer yt-icon-button:is(:hover, :focus-visible) {{
   background: transparent !important;
   outline: 0 !important;
 }}
-yt-icon-button:hover yt-icon,
-yt-icon-button:hover #button,
-yt-icon-button:hover svg,
-ytd-masthead yt-icon-button:hover yt-icon,
-ytd-masthead button:hover yt-icon,
-ytd-masthead button:hover svg,
-ytd-menu-renderer yt-icon-button:hover yt-icon,
-ytd-masthead .yt-spec-button-shape-next:hover yt-icon,
-ytd-masthead .yt-spec-button-shape-next:hover yt-icon-shape,
-ytd-masthead .yt-spec-button-shape-next:hover svg,
-.ytSearchboxComponentSearchButton:hover :is(yt-icon, svg),
-.ytSearchboxComponentVoiceSearchButton:hover :is(yt-icon, svg) {{
+yt-icon-button:is(:hover, :focus-visible) yt-icon,
+yt-icon-button:is(:hover, :focus-visible) #button,
+yt-icon-button:is(:hover, :focus-visible) svg,
+ytd-masthead yt-icon-button:is(:hover, :focus-visible) yt-icon,
+ytd-masthead button:is(:hover, :focus-visible) yt-icon,
+ytd-masthead button:is(:hover, :focus-visible) svg,
+ytd-menu-renderer yt-icon-button:is(:hover, :focus-visible) yt-icon,
+ytd-masthead .yt-spec-button-shape-next:is(:hover, :focus-visible) yt-icon,
+ytd-masthead .yt-spec-button-shape-next:is(:hover, :focus-visible) yt-icon-shape,
+ytd-masthead .yt-spec-button-shape-next:is(:hover, :focus-visible) svg,
+.ytSearchboxComponentSearchButton:is(:hover, :focus-visible) :is(yt-icon, svg),
+.ytSearchboxComponentVoiceSearchButton:is(:hover, :focus-visible) :is(yt-icon, svg) {{
   color: var(--yt-hot) !important;
   fill:  var(--yt-hot) !important;
 }}
-yt-icon-button:hover svg *,
-ytd-masthead button:hover svg * {{ fill: currentColor !important; }}
+yt-icon-button:is(:hover, :focus-visible) svg *,
+ytd-masthead button:is(:hover, :focus-visible) svg * {{ fill: currentColor !important; }}
 /* the grey hover disc on bell/create is drawn on ::before/::after */
 ytd-masthead .yt-spec-button-shape-next::before,
 ytd-masthead .yt-spec-button-shape-next::after {{
@@ -786,9 +786,9 @@ ytd-masthead .yt-spec-button-shape-next::after {{
   border: var(--s24-hair) solid var(--yt-line) !important;
   color: var(--yt-text) !important;
 }}
-.ytSearchboxComponentInputBox:hover,
-.ytSearchboxComponentSearchButton:hover,
-.ytSearchboxComponentSearchButtonDark:hover {{
+.ytSearchboxComponentInputBox:is(:hover, :focus-visible),
+.ytSearchboxComponentSearchButton:is(:hover, :focus-visible),
+.ytSearchboxComponentSearchButtonDark:is(:hover, :focus-visible) {{
   border-color: var(--yt-hot) !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
@@ -807,7 +807,7 @@ ytd-masthead .yt-spec-button-shape-next::after {{
   background: transparent !important;
   color: var(--yt-text) !important;
 }}
-.ytSuggestionComponentSuggestion:hover,
+.ytSuggestionComponentSuggestion:is(:hover, :focus-visible),
 .ytSuggestionComponentSuggestion.ytSuggestionComponentHighlighted,
 .ytSuggestionComponentSuggestion[aria-selected="true"] {{
   background: transparent !important;
@@ -838,9 +838,9 @@ ytd-notification-topbar-button-renderer button#button,
   box-sizing: border-box !important;
   transition: border-color var(--s24-motion), color var(--s24-motion) !important;
 }}
-ytd-notification-topbar-button-renderer:hover button#button,
-#voice-search-button:hover button#button,
-.ytSearchboxComponentVoiceSearchButton:hover {{
+ytd-notification-topbar-button-renderer:is(:hover, :focus-visible) button#button,
+#voice-search-button:is(:hover, :focus-visible) button#button,
+.ytSearchboxComponentVoiceSearchButton:is(:hover, :focus-visible) {{
   border-color: var(--yt-hot) !important;
   color: var(--yt-hot) !important;
 }}
@@ -906,17 +906,17 @@ tp-yt-paper-item,
   color: var(--yt-text) !important;
   transition: color var(--s24-motion) !important;
 }}
-ytd-menu-service-item-renderer:hover,
-ytd-menu-navigation-item-renderer:hover,
-ytd-menu-popup-renderer tp-yt-paper-item:hover,
-tp-yt-paper-listbox > tp-yt-paper-item:hover {{
+ytd-menu-service-item-renderer:is(:hover, :focus-visible),
+ytd-menu-navigation-item-renderer:is(:hover, :focus-visible),
+ytd-menu-popup-renderer tp-yt-paper-item:is(:hover, :focus-visible),
+tp-yt-paper-listbox > tp-yt-paper-item:is(:hover, :focus-visible) {{
   background: transparent !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
 }}
 /* the row wrapper wears the ring; its inner paper-item must not draw a second */
-ytd-menu-service-item-renderer:hover tp-yt-paper-item,
-ytd-menu-navigation-item-renderer:hover tp-yt-paper-item {{
+ytd-menu-service-item-renderer:is(:hover, :focus-visible) tp-yt-paper-item,
+ytd-menu-navigation-item-renderer:is(:hover, :focus-visible) tp-yt-paper-item {{
   outline: none !important;
   background: transparent !important;
 }}
@@ -933,22 +933,22 @@ tp-yt-paper-listbox#items.ytd-menu-popup-renderer {{
 }}
 /* the You / Subscriptions flyout rows keep the ring 1.8.1 gave them — the
    popup border is structural, this is the highlight */
-[class*="ytListItemViewModel"]:hover {{
+[class*="ytListItemViewModel"]:is(:hover, :focus-visible) {{
   background: transparent !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
 }}
 [class*="ytListItemViewModel"] [class*="ytListItemViewModel"],
-[class*="ytListItemViewModel"] [class*="ytListItemViewModel"]:hover {{
+[class*="ytListItemViewModel"] [class*="ytListItemViewModel"]:is(:hover, :focus-visible) {{
   outline: 0 !important;
   background: transparent !important;
 }}
-ytd-menu-service-item-renderer:hover :is(tp-yt-paper-item, yt-formatted-string, yt-icon),
-ytd-menu-navigation-item-renderer:hover :is(tp-yt-paper-item, yt-formatted-string, yt-icon),
-[class*="ytListItemViewModel"]:hover :is(span, yt-icon, svg) {{
+ytd-menu-service-item-renderer:is(:hover, :focus-visible) :is(tp-yt-paper-item, yt-formatted-string, yt-icon),
+ytd-menu-navigation-item-renderer:is(:hover, :focus-visible) :is(tp-yt-paper-item, yt-formatted-string, yt-icon),
+[class*="ytListItemViewModel"]:is(:hover, :focus-visible) :is(span, yt-icon, svg) {{
   color: var(--yt-hot) !important;
 }}
-ytd-menu-popup-renderer :is(yt-icon, .yt-icon-shape, yt-icon-button):hover {{
+ytd-menu-popup-renderer :is(yt-icon, .yt-icon-shape, yt-icon-button):is(:hover, :focus-visible) {{
   background: transparent !important;
 }}
 
@@ -963,14 +963,14 @@ ytd-compact-link-renderer {{
   margin: 0 !important;
   transition: outline-color var(--s24-motion) !important;
 }}
-ytd-compact-link-renderer:hover {{
+ytd-compact-link-renderer:is(:hover, :focus-visible) {{
   background: transparent !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
   position: relative !important;
   z-index: 1 !important;          /* ring sits above the next row's border */
 }}
-ytd-compact-link-renderer:hover :is(yt-formatted-string, yt-icon, .title) {{
+ytd-compact-link-renderer:is(:hover, :focus-visible) :is(yt-formatted-string, yt-icon, .title) {{
   color: var(--yt-hot) !important;
 }}
 ytd-multi-page-menu-section-renderer,
@@ -1146,7 +1146,7 @@ ytd-guide-section-renderer h3 {{ color: var(--yt-muted) !important; }}
 ytd-mini-guide-entry-renderer {{
   transition: outline-color var(--s24-motion) !important;
 }}
-ytd-mini-guide-entry-renderer:hover,
+ytd-mini-guide-entry-renderer:is(:hover, :focus-visible),
 ytd-mini-guide-entry-renderer[active] {{
   background: transparent !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
@@ -1166,16 +1166,16 @@ ytd-mini-guide-entry-renderer:hover * {{
   background-color: transparent !important;
   background-image: none !important;
 }}
-ytd-mini-guide-entry-renderer:hover :is(yt-icon, .title),
+ytd-mini-guide-entry-renderer:is(:hover, :focus-visible) :is(yt-icon, .title),
 ytd-mini-guide-entry-renderer[active] yt-icon,
-ytd-guide-entry-renderer:hover yt-icon {{
+ytd-guide-entry-renderer:is(:hover, :focus-visible) yt-icon {{
   color: var(--yt-hot) !important;
 }}
 
 /* hamburger */
-#guide-button:hover,
-ytd-masthead #guide-button:hover,
-#guide-button yt-icon-button:hover {{
+#guide-button:is(:hover, :focus-visible),
+ytd-masthead #guide-button:is(:hover, :focus-visible),
+#guide-button yt-icon-button:is(:hover, :focus-visible) {{
   background: transparent !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
@@ -1239,7 +1239,7 @@ ytd-guide-entry-renderer[active]:not(:hover) :is(tp-yt-paper-item, a#endpoint) {
   outline: 0 !important;
   background: transparent !important;
 }}
-ytd-guide-section-renderer ytd-guide-entry-renderer:hover {{
+ytd-guide-section-renderer ytd-guide-entry-renderer:is(:hover, :focus-visible) {{
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
   background: transparent !important;
@@ -1277,7 +1277,7 @@ ytd-rich-item-renderer:hover {{
 /* standalone lockups (channel pages) have no #content wrapper. The outline
    that used to live here is gone — the ring is the ::after overlay in
    "the standalone-card ring" below. */
-yt-lockup-view-model:hover {{
+yt-lockup-view-model:is(:hover, :has(:focus-visible)) {{
   background: transparent !important;
   outline: 0 !important;
 }}
@@ -1312,7 +1312,7 @@ ytd-rich-grid-media {{
 ytd-rich-item-renderer #content.ytd-rich-item-renderer {{
   position: relative !important;
 }}
-ytd-rich-item-renderer:hover #content.ytd-rich-item-renderer::after {{
+ytd-rich-item-renderer:is(:hover, :has(:focus-visible)) #content.ytd-rich-item-renderer::after {{
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
@@ -1336,9 +1336,9 @@ yt-lockup-view-model:hover *:not(ytd-rich-grid-media) {{
   outline: 0 !important;
   box-shadow: none !important;
 }}
-ytd-rich-item-renderer yt-lockup-view-model:hover,
-ytd-rich-item-renderer yt-lockup-view-model:hover ytd-rich-grid-media,
-yt-lockup-view-model yt-lockup-view-model:hover {{
+ytd-rich-item-renderer yt-lockup-view-model:is(:hover, :has(:focus-visible)),
+ytd-rich-item-renderer yt-lockup-view-model:is(:hover, :has(:focus-visible)) ytd-rich-grid-media,
+yt-lockup-view-model yt-lockup-view-model:is(:hover, :has(:focus-visible)) {{
   outline: 0 !important;
 }}
 
@@ -1382,7 +1382,7 @@ yt-lockup-view-model yt-lockup-view-model:hover {{
   position: relative !important;
 }}
 
-yt-lockup-view-model:hover .ytLockupViewModelHost::after {{
+yt-lockup-view-model:is(:hover, :has(:focus-visible)) .ytLockupViewModelHost::after {{
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
@@ -1394,7 +1394,7 @@ yt-lockup-view-model:hover .ytLockupViewModelHost::after {{
    itself rather than on an inner div, so there is no descendant to hang the
    ring on. Kept as its own rule on purpose: if :has() ever fails to parse it
    takes this branch down with it and not the ring above. */
-yt-lockup-view-model:hover:not(:has(.ytLockupViewModelHost))::after {{
+yt-lockup-view-model:is(:hover, :has(:focus-visible)):not(:has(.ytLockupViewModelHost))::after {{
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
@@ -1417,7 +1417,7 @@ yt-lockup-view-model:hover:not(:has(.ytLockupViewModelHost))::after {{
     ytd-grid-channel-renderer, ytd-grid-movie-renderer,
     ytd-reel-item-renderer,
     ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
-    [class~="shortsLockupViewModelHost"]):hover::after {{
+    [class~="shortsLockupViewModelHost"]):is(:hover, :has(:focus-visible))::after {{
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
@@ -1427,7 +1427,7 @@ yt-lockup-view-model:hover:not(:has(.ytLockupViewModelHost))::after {{
 }}
 
 /* one card, one edge — every context that already draws its own ring */
-ytd-rich-item-renderer:hover :is(yt-lockup-view-model, .ytLockupViewModelHost,
+ytd-rich-item-renderer:is(:hover, :has(:focus-visible)) :is(yt-lockup-view-model, .ytLockupViewModelHost,
   ytd-reel-item-renderer, ytm-shorts-lockup-view-model,
   ytm-shorts-lockup-view-model-v2, [class~="shortsLockupViewModelHost"])::after,
 /* nested lockups: only the outermost rings */
@@ -1591,7 +1591,7 @@ ytd-thumbnail-overlay-toggle-button-renderer {{
 }}
 
 /* ...but the generic spec-button hover in §6 still reached this kebab through
-   `:is(a, button)[class*="ytSpecButtonShapeNextHost"]:hover` — specificity
+   `:is(a, button)[class*="ytSpecButtonShapeNextHost"]:is(:hover, :focus-visible)` — specificity
    (0,2,1) against this block's (0,1,1) — and drew the 2px ring back on. A card
    kebab is an ICON button, not a boxed one: no container ever, the glyph takes
    the accent, exactly like every other icon in the theme. The class is doubled
@@ -1599,23 +1599,23 @@ ytd-thumbnail-overlay-toggle-button-renderer {{
 .ytLockupMetadataViewModelMenuButton :is(yt-icon, yt-icon-shape, .yt-icon-shape, svg) {{
   transition: color var(--s24-motion), fill var(--s24-motion) !important;
 }}
-.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:hover,
-.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:hover button,
-.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton button:hover,
+.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:is(:hover, :focus-visible),
+.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:is(:hover, :focus-visible) button,
+.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton button:is(:hover, :focus-visible),
 .ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton button[aria-expanded="true"] {{
   background: transparent !important;
   border: 0 !important;
   outline: 0 !important;
   box-shadow: none !important;
 }}
-.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:hover
+.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:is(:hover, :focus-visible)
   :is(yt-icon, yt-icon-shape, .yt-icon-shape, svg),
 .ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton
   button[aria-expanded="true"] :is(yt-icon, yt-icon-shape, .yt-icon-shape, svg) {{
   color: var(--yt-hot) !important;
   fill:  var(--yt-hot) !important;
 }}
-.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:hover svg *,
+.ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton:is(:hover, :focus-visible) svg *,
 .ytLockupMetadataViewModelMenuButton.ytLockupMetadataViewModelMenuButton
   button[aria-expanded="true"] svg * {{
   fill: currentColor !important;
@@ -1641,10 +1641,10 @@ ytd-thumbnail-overlay-toggle-button-renderer {{
 :is(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
     [class~="shortsLockupViewModelHost"], ytd-reel-item-renderer)
   :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button)
-  :is(button, a):hover,
+  :is(button, a):is(:hover, :focus-visible),
 :is(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
     [class~="shortsLockupViewModelHost"], ytd-reel-item-renderer)
-  :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button):hover {{
+  :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button):is(:hover, :focus-visible) {{
   background: transparent !important;
   border: 0 !important;
   outline: 0 !important;
@@ -1658,7 +1658,7 @@ ytd-thumbnail-overlay-toggle-button-renderer {{
 }}
 :is(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
     [class~="shortsLockupViewModelHost"], ytd-reel-item-renderer)
-  :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button):hover
+  :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button):is(:hover, :focus-visible)
   :is(yt-icon, yt-icon-shape, .yt-icon-shape, svg),
 :is(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
     [class~="shortsLockupViewModelHost"], ytd-reel-item-renderer)
@@ -1669,7 +1669,7 @@ ytd-thumbnail-overlay-toggle-button-renderer {{
 }}
 :is(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
     [class~="shortsLockupViewModelHost"], ytd-reel-item-renderer)
-  :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button):hover svg *,
+  :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button):is(:hover, :focus-visible) svg *,
 :is(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
     [class~="shortsLockupViewModelHost"], ytd-reel-item-renderer)
   :is([class*="Menu"], ytd-menu-renderer, menu-view-model, yt-icon-button)
@@ -2116,7 +2116,7 @@ ytd-watch-next-secondary-results-renderer:hover {{
   margin-bottom: 10px !important;
   transition: border-color var(--s24-motion) !important;
 }}
-#secondary yt-lockup-view-model:hover {{
+#secondary yt-lockup-view-model:is(:hover, :has(:focus-visible)) {{
   border-color: var(--yt-hot-rose) !important;
   outline: var(--s24-ring) solid var(--yt-hot-rose) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
@@ -2587,7 +2587,7 @@ yt-tab-shape .ytTabShapeTab {{
   line-height: 1.2 !important;
   background: transparent !important;
 }}
-yt-tab-shape:hover {{
+yt-tab-shape:is(:hover, :focus-visible) {{
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
 }}
@@ -3029,14 +3029,14 @@ ytd-search ytd-two-column-search-results-renderer #secondary {{
   transition: border-color var(--s24-motion) !important;
 }}
 :is(ytd-search, ytd-browse) :is(ytd-video-renderer, ytd-playlist-renderer,
-               ytd-channel-renderer, ytd-radio-renderer):hover::after {{
+               ytd-channel-renderer, ytd-radio-renderer):is(:hover, :has(:focus-visible))::after {{
   border-color: var(--yt-hot) !important;
 }}
 /* The thumbnail draws NO edge of its own, hovered or not. Its left, top and
    bottom sit on the row ring already, so the only line it contributed was the
    one down its right-hand side — which read as a divider and made the
    thumbnail and the text look like two boxes instead of one enclosed row.
-   Killed outright rather than made transparent, and not gated on :hover, so
+   Killed outright rather than made transparent, and not gated on :is(:hover, :has(:focus-visible)), so
    there is nothing to reappear at rest. */
 :is(ytd-search, ytd-browse) :is(ytd-video-renderer, ytd-playlist-renderer,
                ytd-channel-renderer, ytd-radio-renderer)
@@ -3267,7 +3267,7 @@ ytd-browse[page-subtype="history"] ytd-browse-feed-actions-renderer
    row included, since it is a row like the rest */
 ytd-browse[page-subtype="history"] ytd-browse-feed-actions-renderer
   :is(ytd-search-box-renderer, ytd-button-renderer,
-      ytd-compact-link-renderer):hover {{
+      ytd-compact-link-renderer):is(:hover, :focus-visible) {{
   outline: var(--s24-ring) solid var(--yt-hot) !important;
   outline-offset: calc(var(--s24-ring) * -1) !important;
 }}
@@ -3345,10 +3345,10 @@ ytd-browse[page-subtype="playlist"]
 ytd-browse[page-subtype="playlist"]
   :is(ytd-playlist-header-renderer, yt-page-header-view-model,
       .ytPageHeaderViewModelHost)
-  :is(button, a)[class*="ytSpecButtonShapeNext"]:hover,
+  :is(button, a)[class*="ytSpecButtonShapeNext"]:is(:hover, :focus-visible),
 ytd-browse[page-subtype="playlist"]
   :is(ytd-playlist-header-renderer, yt-page-header-view-model,
-      .ytPageHeaderViewModelHost) .yt-spec-button-shape-next:hover {{
+      .ytPageHeaderViewModelHost) .yt-spec-button-shape-next:is(:hover, :focus-visible) {{
   background: transparent !important;
   border-color: var(--yt-hot) !important;
   outline: var(--s24-ring) solid var(--yt-hot) !important;
@@ -3377,7 +3377,7 @@ ytd-browse[page-subtype="playlist"] ytd-alert-with-button-renderer {{
    hovered one takes a ring on its outermost box.
 
    The ring is the permanent-pseudo form — a transparent border whose colour
-   is gated on :hover — not `:hover::after`. A row that resizes under a
+   is gated on :is(:hover, :has(:focus-visible)) — not `:is(:hover, :has(:focus-visible))::after`. A row that resizes under a
    stationary cursor (a thumbnail loading, a title reflowing) would otherwise
    destroy the pseudo mid-frame and strand a hard edge, which is the class of
    bug that cost two sessions on the search rows. */
@@ -3401,7 +3401,7 @@ ytd-playlist-video-renderer::after {{
   z-index: 60 !important;
   transition: border-color var(--s24-motion) !important;
 }}
-ytd-playlist-video-renderer:hover::after {{
+ytd-playlist-video-renderer:is(:hover, :has(:focus-visible))::after {{
   border-color: var(--yt-hot) !important;
 }}
 /* the row is the only box — inner layers stay quiet */
@@ -3670,8 +3670,8 @@ ytmusic-player-bar yt-icon-button {{
   color: var(--yt-text) !important;
   background: transparent !important;
 }}
-ytmusic-player-bar tp-yt-paper-icon-button:hover,
-ytmusic-player-bar yt-icon-button:hover {{
+ytmusic-player-bar tp-yt-paper-icon-button:is(:hover, :focus-visible),
+ytmusic-player-bar yt-icon-button:is(:hover, :focus-visible) {{
   color: var(--yt-hot) !important;
   background: transparent !important;
 }}
