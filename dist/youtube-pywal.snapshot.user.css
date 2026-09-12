@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube pywal
 @namespace      ichika
-@version        2.6.62
+@version        2.6.63
 @description    TUI/terminal-styled YouTube in the system24 grammar, re-themed from the desktop wallpaper by pywal. Covers youtube.com, YouTube Music and Shorts. Inspired by refact0r's system24 for Discord.
 @author         ichika
 @license        MIT
@@ -19,6 +19,44 @@
    from here.
    ══════════════════════════════════════════════════════════════════════════ */
 
+/* ── Open Sans, pinned to normal width ────────────────────────────────────
+   Common Open Sans packagings (Arch's ttf-opensans among them) register the
+   CONDENSED faces under the "Open Sans" family name as well:
+
+     OpenSans-CondensedRegular.ttf:
+       Open Sans,Open Sans Condensed:style=Condensed Regular,Regular
+
+   The style alias is a plain "Regular", so a bare `font-family: 'Open Sans'`
+   can resolve to the condensed face — and did, for YouTube's weight-500
+   titles: 500 has no exact match in the family, and the fallback walk reached
+   Condensed Regular first. Everything then rendered narrow.
+
+   `font-stretch: normal` does NOT fix it — that is already the default, and
+   the packaging is what confuses the width match, not the CSS.
+
+   Binding each face by full name pins the width. Weight 500 falls back to the
+   400 face declared here, which is normal-width. */
+@font-face {
+  font-family: 's24-sans';
+  src: local('Open Sans Regular'), local('OpenSans-Regular');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 's24-sans';
+  src: local('Open Sans Italic'), local('OpenSans-Italic');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 's24-sans';
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 's24-sans';
+  src: local('Open Sans Bold'), local('OpenSans-Bold');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
 :root {
   /* ── palette (rendered by pywal from the wallpaper) ───────────────────── */
   --yt-bg:         #13171c;
@@ -33,7 +71,7 @@
   --yt-hover-fill: var(--yt-panel);
 
   /* ── knobs ────────────────────────────────────────────────────────────── */
-  --s24-font:   'Open Sans', 'Noto Sans CJK JP', 'Noto Sans CJK', sans-serif;
+  --s24-font:   's24-sans', 'Noto Sans CJK JP', 'Noto Sans CJK', sans-serif;
   --s24-mono:   'JetBrainsMono Nerd Font', 'DM Mono', ui-monospace, monospace;
   /* for the full system24 look, set: --s24-font: var(--s24-mono); */
 
