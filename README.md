@@ -5,8 +5,7 @@
 a tui-style youtube theme, themeable from your wallpaper. inspired by
 [refact0r's system24](https://github.com/refact0r/system24) for discord.
 
-covers `youtube.com`, `music.youtube.com` and `m.youtube.com`.
-`studio.youtube.com` is deliberately left alone — the box grammar wrecks it.
+covers `youtube.com`
 
 ## install
 
