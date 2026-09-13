@@ -75,17 +75,34 @@ pywal runs on windows too, and stylus live-reloads a userstyle installed from a
 something to notice the wallpaper changed:
 
 ```powershell
-pip install pywal colorthief
-mkdir  $env:USERPROFILE\.config\wal\templates
-copy   templates\youtube.user.css $env:USERPROFILE\.config\wal\templates\
+git clone https://github.com/Ichika11/yt-system24
+cd yt-system24
+
+pip install pywal
+mkdir -Force $env:USERPROFILE\.config\wal\templates
+copy templates\youtube.user.css $env:USERPROFILE\.config\wal\templates\
+
 powershell -ExecutionPolicy Bypass -File tools\windows-wal-watch.ps1
 ```
+
+with imagemagick installed you can drop the pure-python backend and use
+pywal's default, which is better at picking colours:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\windows-wal-watch.ps1 -Backend wal
+```
+(without imagemagick: `pip install colorthief` first, and leave the default)
 
 the script polls the registry key explorer writes on a wallpaper change,
 re-runs pywal, and copies the result to a fixed path. install *that* path in
 stylus as a `file://` url and grant stylus local-file access
 (`about:addons` → stylus → permissions) — it then reloads on every wallpaper
 change with nothing else to run.
+
+that permission is the whole trick. stylus keeps styles in the browser's own
+database, not as files, so pywal writing a stylesheet normally changes nothing
+— unlike a bar or a terminal, which read their config off disk. a style
+*installed from* a `file://` url is the one case stylus polls a real file.
 
 > **untested.** written on linux, never run on windows. if you try it, please
 > open an issue either way — working or not, the result is worth recording.

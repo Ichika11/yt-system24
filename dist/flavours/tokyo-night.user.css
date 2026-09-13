@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube system24 — Tokyo Night
 @namespace      ichika
-@version        2.6.64
+@version        2.6.65
 @description    TUI/terminal-styled YouTube in the system24 grammar, re-themed from the desktop wallpaper by pywal. Covers youtube.com, YouTube Music and Shorts. Inspired by refact0r's system24 for Discord.
 @author         ichika
 @license        MIT
@@ -17,8 +17,15 @@
    positioning was wrong throughout. Shipping a half-themed YT Music is worse
    than leaving it stock, so the domain is unmatched and §14 below is inert.
    The rules are kept, not deleted — they are the starting point for finishing
-   the job. Re-add the domain here when they work. */
-@-moz-document domain("www.youtube.com"), domain("m.youtube.com") {
+   the job. Re-add the domain here when they work.
+
+   m.youtube.com went the same way in 2.6.65, for a different reason: on a
+   desktop browser it just redirects to www, so the match did nothing, and on a
+   phone it serves a completely different DOM that this grammar was never built
+   for — no rail, no drawer, no hover, and under the 900px breakpoint where the
+   panels stand down anyway. A mobile version would be a separate stylesheet
+   sharing only the palette. */
+@-moz-document domain("www.youtube.com") {
 
 /* ══════════════════════════════════════════════════════════════════════════
    1. TOKENS

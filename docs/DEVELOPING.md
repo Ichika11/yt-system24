@@ -120,4 +120,8 @@ Traps this theme has already fallen into:
   the template still holds ~250 lines of `ytmusic-*` rules — inert while the
   domain is unmatched, and kept as the starting point rather than deleted.
   Re-add the domain when they work.
-- `m.youtube.com` is still matched but has never been looked at.
+- **`m.youtube.com` was dropped in 2.6.65.** On desktop it redirects to www, so
+  the match did nothing; on a phone it serves a different DOM with no rail, no
+  drawer and no hover — and sits under the 900px breakpoint where the panel
+  grammar stands down regardless. A mobile version would be a separate
+  stylesheet sharing only the palette.
