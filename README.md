@@ -11,8 +11,10 @@ covers `youtube.com`
 
 1. install [stylus](https://addons.mozilla.org/firefox/addon/styl-us/) —
    firefox or chrome
-2. click a flavour below. stylus offers to install it
-3. done
+2. open a flavour link below. it's a raw `.user.css`, so stylus intercepts it
+   and shows an install page — click **install style**
+3. if stylus doesn't offer (some browsers open the file as plain text instead),
+   select all, copy, then in stylus: **write new style** → paste → save
 
 the two files in `userscripts/` are optional and go in tampermonkey or
 violentmonkey. the stylesheet works without them, but hover previews behave
@@ -20,14 +22,14 @@ better with `yt-panel-scroll-sync` installed.
 
 ## flavours
 
-click a name to install, or an image to view it full size.
+click a name to open its install page, or an image to view it full size.
 
-| [catppuccin mocha](dist/flavours/catppuccin-mocha.user.css) | [catppuccin latte](dist/flavours/catppuccin-latte.user.css) | [tokyo night](dist/flavours/tokyo-night.user.css) |
+| [catppuccin mocha](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/catppuccin-mocha.user.css) | [catppuccin latte](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/catppuccin-latte.user.css) | [tokyo night](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/tokyo-night.user.css) |
 |:--|:--|:--|
 | [![](assets/flavours/catppuccin-mocha.png)](assets/flavours/catppuccin-mocha.png) | [![](assets/flavours/catppuccin-latte.png)](assets/flavours/catppuccin-latte.png) | [![](assets/flavours/tokyo-night.png)](assets/flavours/tokyo-night.png) |
-| [**gruvbox dark**](dist/flavours/gruvbox-dark.user.css) | [**gruvbox light**](dist/flavours/gruvbox-light.user.css) | [**nord**](dist/flavours/nord.user.css) |
+| [**gruvbox dark**](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/gruvbox-dark.user.css) | [**gruvbox light**](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/gruvbox-light.user.css) | [**nord**](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/nord.user.css) |
 | [![](assets/flavours/gruvbox-dark.png)](assets/flavours/gruvbox-dark.png) | [![](assets/flavours/gruvbox-light.png)](assets/flavours/gruvbox-light.png) | [![](assets/flavours/nord.png)](assets/flavours/nord.png) |
-| [**dracula**](dist/flavours/dracula.user.css) | [**rosé pine**](dist/flavours/rose-pine.user.css) | |
+| [**dracula**](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/dracula.user.css) | [**rosé pine**](https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/rose-pine.user.css) | |
 | [![](assets/flavours/dracula.png)](assets/flavours/dracula.png) | [![](assets/flavours/rose-pine.png)](assets/flavours/rose-pine.png) | |
 
 previews are drawn from each palette rather than screenshotted, so they always

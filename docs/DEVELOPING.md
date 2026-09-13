@@ -114,3 +114,10 @@ Traps this theme has already fallen into:
 - The exhaustive dead-selector sweep was only run on the home feed.
 - Chromium and Windows are untested — everything here was measured in Firefox
   on Linux.
+- **YouTube Music is unfinished and unmatched.** `music.youtube.com` was
+  removed from `@-moz-document` in 2.6.64: the theme applied, but shelf
+  thumbnails failed to render and card positioning was wrong throughout. §14 of
+  the template still holds ~250 lines of `ytmusic-*` rules — inert while the
+  domain is unmatched, and kept as the starting point rather than deleted.
+  Re-add the domain when they work.
+- `m.youtube.com` is still matched but has never been looked at.

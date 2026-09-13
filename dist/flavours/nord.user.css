@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube system24 — Nord
 @namespace      ichika
-@version        2.6.63
+@version        2.6.64
 @description    TUI/terminal-styled YouTube in the system24 grammar, re-themed from the desktop wallpaper by pywal. Covers youtube.com, YouTube Music and Shorts. Inspired by refact0r's system24 for Discord.
 @author         ichika
 @license        MIT
@@ -10,8 +10,15 @@
 @updateURL      https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/nord.user.css
 ==/UserStyle== */
 
-/* studio.youtube.com is deliberately NOT matched — the box grammar wrecks it. */
-@-moz-document domain("www.youtube.com"), domain("music.youtube.com"), domain("m.youtube.com") {
+/* studio.youtube.com is deliberately NOT matched — the box grammar wrecks it.
+
+   music.youtube.com was dropped in 2.6.64. The theme applied but was not
+   finished there: thumbnails failed to render in the shelves and card
+   positioning was wrong throughout. Shipping a half-themed YT Music is worse
+   than leaving it stock, so the domain is unmatched and §14 below is inert.
+   The rules are kept, not deleted — they are the starting point for finishing
+   the job. Re-add the domain here when they work. */
+@-moz-document domain("www.youtube.com"), domain("m.youtube.com") {
 
 /* ══════════════════════════════════════════════════════════════════════════
    1. TOKENS

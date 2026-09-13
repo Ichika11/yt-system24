@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube pywal
 @namespace      ichika
-@version        2.6.63
+@version        2.6.64
 @description    TUI/terminal-styled YouTube in the system24 grammar, re-themed from the desktop wallpaper by pywal. Covers youtube.com, YouTube Music and Shorts. Inspired by refact0r's system24 for Discord.
 @author         ichika
 @license        MIT
@@ -10,8 +10,15 @@
 @updateURL      https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/youtube-pywal.snapshot.user.css
 ==/UserStyle== */
 
-/* studio.youtube.com is deliberately NOT matched — the box grammar wrecks it. */
-@-moz-document domain("www.youtube.com"), domain("music.youtube.com"), domain("m.youtube.com") {
+/* studio.youtube.com is deliberately NOT matched — the box grammar wrecks it.
+
+   music.youtube.com was dropped in 2.6.64. The theme applied but was not
+   finished there: thumbnails failed to render in the shelves and card
+   positioning was wrong throughout. Shipping a half-themed YT Music is worse
+   than leaving it stock, so the domain is unmatched and §14 below is inert.
+   The rules are kept, not deleted — they are the starting point for finishing
+   the job. Re-add the domain here when they work. */
+@-moz-document domain("www.youtube.com"), domain("m.youtube.com") {
 
 /* ══════════════════════════════════════════════════════════════════════════
    1. TOKENS
@@ -59,15 +66,15 @@
 
 :root {
   /* ── palette (rendered by pywal from the wallpaper) ───────────────────── */
-  --yt-bg:         #13171c;
-  --yt-panel:      #13171c;
-  --yt-line:       rgba(175,201,235, 0.45);
-  --yt-line-soft:  rgba(175,201,235, 0.20);
-  --yt-hot:        #afc9eb;   /* tier 1 — primary interactive              */
-  --yt-hot-lime:   #bbc7db;   /* tier 2 — queue / playlist                 */
-  --yt-hot-rose:   #e3dbff;   /* tier 3 — comments / sidebar               */
-  --yt-text:       #e1e5ef;
-  --yt-muted:      rgba(225,229,239, 0.55);
+  --yt-bg:         #161616;
+  --yt-panel:      #161616;
+  --yt-line:       rgba(198,198,198, 0.45);
+  --yt-line-soft:  rgba(198,198,198, 0.20);
+  --yt-hot:        #c6c6c6;   /* tier 1 — primary interactive              */
+  --yt-hot-lime:   #9d9d9d;   /* tier 2 — queue / playlist                 */
+  --yt-hot-rose:   #f7f7f7;   /* tier 3 — comments / sidebar               */
+  --yt-text:       #e5e5e5;
+  --yt-muted:      rgba(229,229,229, 0.55);
   --yt-hover-fill: var(--yt-panel);
 
   /* ── knobs ────────────────────────────────────────────────────────────── */
