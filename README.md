@@ -45,7 +45,28 @@ means periodically overwriting your wallpaper-derived palette with the
 snapshot's. The template renders *without* that line for exactly this reason;
 paste from `~/.cache/wal/` and let pywal be the thing that updates it.
 
-### Without pywal
+### Without pywal — pick a flavour
+
+Eight ready-made palettes in `dist/flavours/`. Open the raw URL and Stylus
+offers to install it; no pywal, no terminal, no editing.
+
+| flavour | | flavour | |
+|---|---|---|---|
+| `catppuccin-mocha` | dark | `catppuccin-latte` | light |
+| `gruvbox-dark` | dark | `gruvbox-light` | light |
+| `nord` | dark | `tokyo-night` | dark |
+| `dracula` | dark | `rose-pine` | dark |
+
+```
+https://raw.githubusercontent.com/Ichika11/yt-system24/main/dist/flavours/<name>.user.css
+```
+
+Each carries its own `@name`, so you can install several and switch between
+them in Stylus rather than reinstalling. Regenerate them after editing the
+template with `python3 tools/flavours.py`; adding a palette is six hex values
+in that file.
+
+### Without pywal — your own colours
 
 Install `dist/youtube-pywal.snapshot.user.css` in Stylus and edit the palette
 variables at the top of `:root`:
@@ -139,6 +160,17 @@ python3 tools/build.py --check  # validate only
 The script checks brace balance, renders through `.format()`, parses the result
 with tinycss2 if available, and adds `@updateURL` to `dist/` — **only** there.
 See the docstring for why that line must never reach the local install.
+
+## Screenshots
+
+`tools/demo-mode.js` replaces video titles, channel names and thumbnails with
+generated placeholders, so the theme can be photographed without publishing a
+real feed, subscription list or watch history. Paste it into the console, then
+screenshot; reload to restore. It rewrites only the DOM in front of you.
+
+For pages that exist logged out, a private window is simpler — YouTube serves
+generic trending content with nothing personal in it. The script is for the
+pages that need a session: history, Watch Later, subscriptions, playlists.
 
 ## Contributing / debugging
 
