@@ -10,7 +10,7 @@ covers `youtube.com`
 ## install
 
 1. install [stylus](https://addons.mozilla.org/firefox/addon/styl-us/) —
-   firefox or chrome, **not** stylish
+   firefox or chrome
 2. click a flavour below. stylus offers to install it
 3. done
 
