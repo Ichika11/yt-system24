@@ -27,13 +27,27 @@ Covers `youtube.com`, `music.youtube.com` and `m.youtube.com`.
 
 ### With pywal
 
-Drop the template where pywal will render it, then point Stylus at the output:
+The template reads six keys out of `~/.cache/wal/colors.json`. It does not care
+**how** that file got there — pywal extracting from an image, a preset theme, or
+an external scheme generator writing into it all work identically:
 
 ```bash
 cp templates/youtube.user.css ~/.config/wal/templates/
-wal -n --theme <your-theme>        # renders every template in that directory
-wl-copy < ~/.cache/wal/youtube.user.css
+
+wal -i ~/Pictures/wallpaper.jpg    # pywal extracts a palette from the image
+# or
+wal -n --theme <preset>            # load a preset instead of extracting
+
+wl-copy < ~/.cache/wal/youtube.user.css     # macOS: pbcopy · X11: xclip -sel clip
 ```
+
+Either renders every template in that directory into `~/.cache/wal/`.
+
+> The author's own setup does neither: [caelestia](https://github.com/caelestia-dots)
+> generates the scheme and a watcher writes it into wal's `colors.json`, which is
+> why `wallpaper` reads `None` there. Same six keys, different source. If your
+> colours don't match the screenshots, that's why — pywal's extraction and
+> caelestia's are different algorithms on the same image, and both are correct.
 
 Then paste into a new Stylus UserCSS style (Ctrl+A, Ctrl+V, Ctrl+S). Stylus
 keys style identity on `@name` + `@namespace`, so re-pasting updates the same
@@ -78,6 +92,29 @@ variables at the top of `:root`:
 --yt-text:  #e8e8e8;
 ```
 
+### Windows and macOS
+
+The stylesheet, the flavours and the userscripts are all cross-platform —
+Stylus and Tampermonkey behave the same everywhere.
+
+The **pywal half is effectively Linux/macOS**. pywal is pip-installable on
+Windows and its extraction backends work, but wallpaper-change integration
+isn't there and nobody has built or tested that workflow for this theme. On
+Windows, install a flavour and edit the `:root` block; that's the supported
+path.
+
+Clipboard equivalents where the docs say `wl-copy`:
+
+| | |
+|---|---|
+| Wayland | `wl-copy < file` |
+| X11 | `xclip -selection clipboard < file` |
+| macOS | `pbcopy < file` |
+| Windows | `Get-Content file \| Set-Clipboard` |
+
+Note that Open Sans isn't installed by default on Windows or macOS, so the
+theme falls back to the next font in the stack unless you install it.
+
 ### Userscripts
 
 Both go in Tampermonkey or Violentmonkey. They're optional — the stylesheet
@@ -90,8 +127,9 @@ works without them, but hover previews behave better with
 
 There is no light/dark switch, and nothing consults the OS theme — the
 stylesheet contains no `prefers-color-scheme` rule at all. **Light mode comes
-from the wallpaper.** Point pywal at a light image and the whole theme goes
-light; a dark system theme doesn't override it either way.
+from the palette.** Feed it light colours — a light wallpaper through pywal, a
+light preset, or one of the light flavours — and the whole theme goes light. A
+dark system theme doesn't override it either way.
 
 One deliberate exception: `videotint.user.js` sets `DARK_ONLY = true`, so the
 player chrome stays dark even on a light palette. Chrome sitting directly on
