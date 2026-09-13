@@ -68,8 +68,27 @@ stylus would auto-update over your palette. let pywal be what updates that
 copy.
 
 there's no light/dark switch and nothing reads your system theme — light mode
-just means light colours. pywal is linux/macos in practice; on windows, use a
-flavour.
+just means light colours. ### windows
+
+pywal runs on windows too, and stylus live-reloads a userstyle installed from a
+`file://` url — so wallpaper-driven theming works there, it just needs
+something to notice the wallpaper changed:
+
+```powershell
+pip install pywal colorthief
+mkdir  $env:USERPROFILE\.config\wal\templates
+copy   templates\youtube.user.css $env:USERPROFILE\.config\wal\templates\
+powershell -ExecutionPolicy Bypass -File tools\windows-wal-watch.ps1
+```
+
+the script polls the registry key explorer writes on a wallpaper change,
+re-runs pywal, and copies the result to a fixed path. install *that* path in
+stylus as a `file://` url and grant stylus local-file access
+(`about:addons` → stylus → permissions) — it then reloads on every wallpaper
+change with nothing else to run.
+
+> **untested.** written on linux, never run on windows. if you try it, please
+> open an issue either way — working or not, the result is worth recording.
 
 ## docs
 
